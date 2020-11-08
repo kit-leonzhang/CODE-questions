@@ -7,15 +7,24 @@
 
 
 def twosum(nums, target):
-    lens = len(nums)
-    j = -1
-    for i in range(1, lens):
-        temp = nums[:i]
-        if (target - nums[i]) in temp:
-            j = temp.index(target - nums[i])
-            break
-    if j >= 0:
-        return [j, i]
+    #lens = len(nums)
+    #j = -1
+    #for i in range(1, lens):
+    #    temp = nums[:i]
+    #    if (target - nums[i]) in temp:
+    #        j = temp.index(target - nums[i])
+    #        break
+    #if j >= 0:
+    #    return [j, i]
+        
+        
+        d = {}
+        n = len(nums)
+        for x in range(n):
+            if target - nums[x] in d:
+                return d[target-nums[x]],x
+            else:
+                d[nums[x]] = x
 
 
 if __name__ == "__main__":
